@@ -1,5 +1,6 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+
+from blog.models import Entry
 
 # Create your views here.
 def index(request):
@@ -12,4 +13,5 @@ def contact(request):
     return render(request, 'blog/contact.html')
 
 def blog(request):
-    return render(request, 'blog/blog.html')
+    posts = Entry.objects.all()
+    return render(request, 'blog/blog.html', {'posts': posts,})

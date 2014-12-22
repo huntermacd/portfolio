@@ -1,9 +1,32 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Hunter MacDermut &middot; {% block title %}{% endblock title%}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
 </head>
 <body>
-
+    <div id="wrap">
+        <header>
+            <h2>Hunter MacDermut</h2>
+            <nav>
+                <ul>
+                    <li><a href="/">About Me</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="content">
+            {% block content %}{% endblock content %}
+        </div>
+        <footer>
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> Hunter MacDermut</p>
+        </footer>
+    </div>
 </body>
 </html>
